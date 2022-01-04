@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>English Learning Web App ……</title>
+  <style type="text/css">
+
+@font-face {
+    font-family: 'ciclefina';
+    src: url('images/cicle-webfont.woff2') format('woff2'),
+	     url('images/cicle-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'zantroke';
+    src: url('images/zantroke-webfont.woff2') format('woff2'),
+	     url('images/zantroke-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+} 
+
+    html,body{
+	margin:0 ;
+ /*	font-size:页面打开时，由用户端的window.innerWidth属性决定*/
+		}
+	html{
+	 font-family:"Helvetica","Arial";
+	 height: 100%;
+	}
+	header{
+	font-family: 'zantroke';
+	height:150px;
+	background:url("images/header.jpg") no-repeat center ;
+	color:white;
+    text-align:center;
+	text-shadow:green 3px 2px ;
+	}
+	header>h1{
+	 margin:0 auto;
+	 padding:10px;
+	 font-size:1.8em;
+	 letter-spacing:0.2em;
+	}
+	header>h1>span{
+	font-size:0.5em;
+	}
+
+	nav{
+	height:50px;
+	margin:30px auto;
+	}
+    nav span{
+	 font-size: 1.5em;
+	 border:3px outset   ;
+	 background-color:rgb(0,50,0);
+	 border-radius: 15% ;
+	 padding: 0.1em ;
+	 color:rgb(255,255,255) ;
+	 cursor: pointer;
+	 }
+     nav span:hover{
+	  background-color:rgb(0,200,100);
+	 }
+	  .onclickStyle{
+	   border:3px  inset  ;
+	   background-color:rgb(0,0,100);
+	   color:rgb(255,255,255) ;
+	 }
+
+	section{
+	 display: flex ;
+	}
+	article{
+	 font-family: 'ciclefina' , '黑体';
+	 border:1px solid rgb(50,150,50);
+	 padding:5px;
+	 text-align:justify;
+	 line-height:1.5;
+     color:rgb(0,100,0) ;
+	 background-color:rgb(200,220,200);
+	}
+	article#help{
+	 flex: 1 ;
+	}
+	article#word{
+	 flex: 2;
+	 text-align:center;
+	}
+    article#word input#en{font-family: 'zantroke'}
+
+	footer{
+	font-family: 'zantroke','Arial Black';
+	background-color:rgb(0,50,0);
+	color:white;
+	font-size:1.2em;
+	text-align:center;
+	height:50px;
+	padding-top:15px;
+	}
+
+    article#word{
+	 text-align:center;
+	 cursor:pointer;
+	 position:relative;
+	}
+	 article#word>h1{
+	 font-size:1.3em ;
+	}
+	article#word>input{
+	 width:90%; 
+	 font-family:'zant';
+	 color:rgb(200,0,0);
+     font-size:2.2em;
+	 text-align:center;
+	}
+	article#word p#pn{
+	 font-family:'Arial','ciclefina';
+	 color:rgb(0,150,0);
+	 font-size:2.5em;
+	 margin:0.5em auto;
+	}
+	article#word p#cn{
+	 font-family:'幼圆', '黑体';
+	 font-size:1.5em;
+	 color:rgb(150,0,0);
+	 margin:0.5em auto;
+	}
+	article#word nav{
+	 font-family:'幼圆', '黑体';
+	 font-size:1.1em;
+	 color:rgb(150,0,0);
+	 margin:auto;
+	}
+	article#word nav span{
+	margin-right:1em;
+	}
+	article#word nav span:hover{
+	 background-color:rgb(0,0,220);
+	}
+
+    article#help{
+	  position:relative;
+	  background-color:rgb(20,50,0);
+	  overflow:hidden;
+	   	} 
+	article#help div#backPic{
+	 position:absolute;
+	 width:98%;
+	 height:98%;
+	 left:1%;top:1%;
+	 z-index: 1 ;
+	}
+	article#help div#backPic img{
+	 width:100%;
+	 /*height:100%;如果设置这条，会照成窄屏幕出现图像变形*/
+	}
+	 article#help p#textInfo{
+	  position:absolute;
+	  color:white;
+	  font-size:1.3em;
+	  text-indent:2em;
+	  left:0.2em;
+	  top:35%;
+	  text-shadow:red 2px 1px ;
+	  z-index: 2 ;
+	  padding:1%;
+	 	  }
+    article#word p#cn{
+	}
+    article#word p#cn p{
+	 font-size:0.9em;
+	 margin:0.1em auto ;
+	 border:1px solid green ;
+	
+	}
+	article#word p#cn p:hover{
+	  background-color:rgb(100,200,200);
+     }
+div#popwindow{
+    position:absolute;
+    top:20%;
+    left:25%;
+    background-color:cornsilk;
+    width:50%;
+    height:60%;
+    text-align:center;
+    overflow: auto;
+}
+#close{
+    position: inherit;
+    right: 5px;
+    top: 5px;
+    width: 15px;
+    height: 15px;
+    background-color: #5599ff;
+    border-radius: 50px;
+    animation-name: move;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-iteration-count:infinite;
+    animation-play-state: paused;
+}
+#close::after{
+    width: 100%;
+    position:absolute;
+    height: 1px;
+    background: #000;
+    content: "";
+    top: 7px;
+    left: 0;
+    transform: rotate(45deg);
+}
+#close::before{
+    width: 100%;
+    position: absolute;
+    height: 1px;
+    background: #000;
+    content: "";
+    top: 7px;
+    right: 0;
+    transform: rotate(135deg);
+}
+@keyframes move {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+article#word>select{
+    position: absolute;
+    left: 0px;
+    font-family: 'zantroke';
+    font-size:1em;
+    color: rgb(255,255,255);
+    background-color: rgb(200,220,200);
+    cursor: pointer;
+}
+article#word span#change{
+    position: absolute;
+    left: 20%;
+}
+span#search {
+    background:#96B97D;
+    top:20%;
+    float:left;
+    text-shadow:0 0 ;
+    border:0;
+
+}
+span#search :before {
+    content:"Go";
+    font-family:FontAwesome;
+    font-size:16px;
+    color:#F9F0DA;
+}
+ input#searchWord{
+    width:250px;
+    border-radius:42px;
+    border:2px solid #324B4E;
+    background:#F9F0DA;
+    transition:.3s linear;
+    float:left;
+}
+input#searchWord:focus {
+    width:300px;
+}
+  </style>
+  <script src="images/words.js">
+  </script>
+     <script src="jquery-3.5.1.js"></script>
+  <script src="20190001.js">
+  </script>
+     </script>
+
+ </head>
+ <body>
+  <header> 
+   <h1>爱英语 <span>（大学英语6级）</span></h1>
+   <nav>
+       <input type="text" id="searchWord" value="请输入3个字母以上的搜索词" class="bar8">
+       <span   id="search" class="bar8">find</span>
+       <span   id="read">read</span>
+       <span   id="write">write</span>
+       <span   id="select">select</span>
+       <span   id="listen">listen</span>
+       <span   id="record">record</span>
+   </nav>
+  </header>
+  <section>
+    <article id = "help">
+	  <p id="textInfo">
+     Photo from the movie of "Pride And Prejudice ",
+	 请选择上面状态按钮，进入相应学习单词的模式。读一读可在单词页左上角又快捷模式，可快速进入。 学习记录的重做错题可帮你巩固练习，过关记录清空。找单词最后寻找时需要点击find按钮
+	 </p>
+	 <div id="backPic" >
+	 </div>
+	</article>
+
+	<article id = "word">
+        <select >
+            <option value="random">读默认选乱序模式</option>
+            <option value="order">读顺序模式</option>
+        </select>
+        <span id="change">切换模式</span>
+        <div id="popwindow">
+            <div  id="close"></div>
+            <div id="showPage">
+            </div>
+        </div>
+	  <h1>当前单词</h1>
+	  <input id="en" type="text" value="ability">
+	  <p id="pn">/ ə'biliti /</p>
+	  <p id="cn">n.能力；本领；才能，才干；专门技能，天资</p>
+	  <nav>
+	   <span id="ok">确认</span>
+          <span id="prev">上一个</span>
+       <span id="next">下一个</span>
+          <span id="save">保存到记录</span>
+	  </nav>
+    </article>
+
+  </section>
+  <footer>
+    Code By 吴梦飞 of 19Java一班  on
+  </footer>
+ </body>
+</html>
